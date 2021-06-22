@@ -1,0 +1,467 @@
+{
+	"info": {
+		"_postman_id": "7b582f22-6aa9-48eb-852d-f2abcb0d3581",
+		"name": "Train1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ResponseHTTP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "535774cf-1dfe-4b2f-9f1d-5eaab2379ee8",
+						"exec": [
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://10.0.5.128:6062/index.html",
+					"protocol": "http",
+					"host": [
+						"10",
+						"0",
+						"5",
+						"128"
+					],
+					"port": "6062",
+					"path": [
+						"index.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResponseHTTPstatusCode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9a33ff4e-7442-4b72-a9bf-b6d381cbbf86",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://10.0.5.128:6062/index.html",
+					"protocol": "http",
+					"host": [
+						"10",
+						"0",
+						"5",
+						"128"
+					],
+					"port": "6062",
+					"path": [
+						"index.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ValidPayLoad",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c9d9fbc5-7785-4eec-bffb-8c31726b84f4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f50c7e77-9134-4943-8912-cd8a4ead368e",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"automatenimble\",\r\n    \"password\": \"nimble\"\r\n}"
+				},
+				"url": {
+					"raw": "http://10.0.5.128:6062/index.html",
+					"protocol": "http",
+					"host": [
+						"10",
+						"0",
+						"5",
+						"128"
+					],
+					"port": "6062",
+					"path": [
+						"index.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResponseUsername",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "512c4bf0-bc07-4774-8533-2f5bf4eebd07",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"username is automatenimble\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.get(\"username\")).to.eql(\"automatenimble\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"automatenimble\"\r\n}"
+				},
+				"url": {
+					"raw": "http://10.0.5.128:6062/index.html",
+					"protocol": "http",
+					"host": [
+						"10",
+						"0",
+						"5",
+						"128"
+					],
+					"port": "6062",
+					"path": [
+						"index.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResponseUsernameStatusCode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2438534d-2614-47a8-9238-c8695d9c7b52",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"username is automatenimble\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data.username).to.eql(\"automatenimble\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"automatenimble\"\r\n}"
+				},
+				"url": {
+					"raw": "http://10.0.5.128:6062/index.html",
+					"protocol": "http",
+					"host": [
+						"10",
+						"0",
+						"5",
+						"128"
+					],
+					"port": "6062",
+					"path": [
+						"index.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResponseUsernameNullvalueStatusCode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0be97e52-ef28-4525-9e94-7ed35e300acc",
+						"exec": [
+							"pm.test(\"username is automatenimble\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data.username).to.eql(\"\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Username\": \"\"\r\n}"
+				},
+				"url": {
+					"raw": "http://10.0.5.128:6062/index.html",
+					"protocol": "http",
+					"host": [
+						"10",
+						"0",
+						"5",
+						"128"
+					],
+					"port": "6062",
+					"path": [
+						"index.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResponsePassword",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "51b3b6fb-0ead-4f4d-be99-e13e48b8d854",
+						"exec": [
+							"pm.test(\"password is nimble\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data.password).to.eql(\"nimble\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"nimble\"\r\n}"
+				},
+				"url": {
+					"raw": "http://10.0.5.128:6062/index.html",
+					"protocol": "http",
+					"host": [
+						"10",
+						"0",
+						"5",
+						"128"
+					],
+					"port": "6062",
+					"path": [
+						"index.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResponsePasswordStatusCode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "70e1f8d8-d6a2-472e-bac5-89076528086e",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"password is nimble\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data.password).to.eql(\"nimble\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"nimble\"\r\n}"
+				},
+				"url": {
+					"raw": "http://10.0.5.128:6062/index.html",
+					"protocol": "http",
+					"host": [
+						"10",
+						"0",
+						"5",
+						"128"
+					],
+					"port": "6062",
+					"path": [
+						"index.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResponsePasswordNullvallueStatusCode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "160d2353-4b36-4ac4-9730-185e20155653",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"password\": \"\"\n}"
+				},
+				"url": {
+					"raw": "http://10.0.5.128:6062/index.html",
+					"protocol": "http",
+					"host": [
+						"10",
+						"0",
+						"5",
+						"128"
+					],
+					"port": "6062",
+					"path": [
+						"index.html"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
